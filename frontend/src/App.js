@@ -1,5 +1,5 @@
 ﻿import React from "react";
-import { Link, Route, Routes } from "react-router-dom";
+import { NavLink, Route, Routes } from "react-router-dom";
 import AddClient from "./components/AddClient";
 import ClientList from "./components/ClientList";
 import EditClient from "./components/EditClient";
@@ -10,8 +10,19 @@ const App = () => {
       <h1>Client Management</h1>
 
       <nav className="nav-links">
-        <Link to="/">Client List</Link>
-        <Link to="/add">Add Client</Link>
+        <NavLink
+          to="/"
+          className={({ isActive }) => `nav-btn ${isActive ? "active" : ""}`}
+          end
+        >
+          Client List
+        </NavLink>
+        <NavLink
+          to="/add"
+          className={({ isActive }) => `nav-btn ${isActive ? "active" : ""}`}
+        >
+          Add Client
+        </NavLink>
       </nav>
 
       <Routes>
